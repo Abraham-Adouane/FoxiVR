@@ -26,7 +26,7 @@ class ProfileController extends AbstractController
     #[Route('/commandes', name: 'orders')]
     public function orders(): Response
     {
-        return $this->render('profile/index.html.twig', [
+        return $this->render('profile/orders.html.twig', [
             'controller_name' => 'Mes commandes',
         ]);
     }
