@@ -52,20 +52,22 @@ class ProfileController extends AbstractController
         ]);
     }
 
-    // #[Route('/supprimer', name: 'delete')]
-    // public function deleteProfile(): Response
-    // {
-    //     $user = $this->getUser();
 
-    //     if ($user) {
-    //         $entityManager = $this->getDoctrine()->getManager();
-    //         $entityManager->remove($user);
-    //         $entityManager->flush();
+    // quand un utilisateur s'inscrit , il est rediriger vers la derniere page d'un autre user ?!!
+    #[Route('/delete', name: 'delete')]
+    public function deleteProfile(EntityManagerInterface $manager): Response
+    {
+        $user = $this->getUser();
 
+        if ($user) {
 
-    //         return $this->redirectToRoute('profile/deleteConfirmation.html.twig');
-    //     } else {
-    //         throw $this->createNotFoundException('Utilisateur non trouvé.');
-    //     }
-    // }
+            $manager->remove($user);
+            $manager->flush();
+
+            return $this->redirectToRoute('app_home');
+            // return $this->render('profile/deleteConfirmation.html.twig');
+        } else {
+            throw $this->createNotFoundException('Utilisateur non trouvé.');
+        }
+    }
 }

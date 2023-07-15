@@ -27,7 +27,7 @@
       <li class="nav-item"><a class="nav-link" href="{{ path('app_admin') }}"><i class="fa-solid fa-gear"></i> Administration</a></li>
       {% endif %}
 
-      <li class="nav-item"><a class="nav-link" href="{{ path('app_profile_index') }}"><i class="fa-solid fa-user"></i> Mon compte</a></li>
+      <li class="nav-item"><a class="nav-link" href="{{path('app_profile_orders')}}"><i class="fa-solid fa-user"></i> Mon compte</a></li>
       <li class="nav-item"><a class="nav-link" href="{{ path('app_logout') }}"><i class="fa-sharp fa-solid fa-right-from-bracket"></i> Se deconnecter</a></li>
     {% else %}
       <li class="nav-item"><a class="nav-link" href="{{ path('app_login') }}"><i class="fa-sharp fa-solid fa-right-to-bracket"></i> Connexion</a></li>
