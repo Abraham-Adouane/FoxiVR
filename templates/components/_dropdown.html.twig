@@ -1,0 +1,20 @@
+{# <li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Nos produits</a>
+    <div class="dropdown-menu">
+      {% if categories is defined %}
+    {% for category in categories %}
+        <li class="nav-item"><a class='nav-link' href="{{path('app_product')}}">{{ category.name }}</a></li>
+    {% endfor %}
+{% else %}
+<p>problem : categories is undefined</p>
+
+{% endif %}
+    </div>
+  </li> #}
+
+  {% if categories is defined %}
+    {% for category in categories %}
+        <li class="nav-item"><a class='nav-link' href="{{path('categories_list', {id:category.id})}}">{{ category.name }}</a></li>
+    {% endfor %}
+
+{% endif %}

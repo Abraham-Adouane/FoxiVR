@@ -2,11 +2,13 @@
 
 namespace App\Entity;
 
-use App\Repository\ProductRepository;
+use App\Entity\Category;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\ProductRepository;
 
 #[ORM\Entity(repositoryClass: ProductRepository::class)]
+#[ORM\Table(name: "product")]
 class Product
 {
     #[ORM\Id]
@@ -23,8 +25,8 @@ class Product
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $image = null;
 
-    #[ORM\Column(nullable: true)]
-    private ?float $price = null;
+    #[ORM\Column(type: "decimal", precision: 10, nullable: true)]
+    private ?string $price = null;
 
     #[ORM\Column(nullable: true)]
     private ?int $quantity = null;

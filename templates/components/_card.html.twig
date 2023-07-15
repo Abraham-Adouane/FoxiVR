@@ -1,0 +1,23 @@
+<div class="col-lg-3 col-md-6 col-sm-12 pb-1">
+<a href="{{ path('detail', { 'id': product.id }) }}">
+        <div class="card hover-scale-effect product-item shadow  mb-4 ">
+            <img 
+            class="card-img-top object-fit-cover p-2 rounded" style="height: 10rem;" 
+            src="{{asset('uploads/images/products/'~ product.image)}}" 
+            alt="{{product.name}}">
+            <div class="card-body border-left border-right text-center text-light p-0 pt-4 pb-3 ">
+                <h6 class="card-title">{{ product.name }} </h6>
+                <div class="d-flex justify-content-center card-text">
+                    <h6>{{ (product.price / 100)|number_format(2, ',', '.') }} €</h6>
+                </div>
+            </div>
+            <div class="card-footer d-flex">
+                <a href="{{path('cart_add', { 'id': product.id })}}" 
+                class="btn btn-sm btn-success m-auto">
+                <i class="fas fa-shopping-cart me-1"></i>
+                Ajouter au panier
+                </a>
+            </div>
+        </div>
+</a>
+</div>

@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{category.name}} - FoxiVR{% endblock %}
+
+{% block body %}
+    <div class="container-fluid pt-5">
+        <div class="text-center mb-4">
+            <h2 class="section-title px-5">{{category.name}}</h2>
+        </div>
+        <div class="row px-xl-5 pb-3">
+
+        {% for product in products %}
+        
+            {% include 'components/_card.html.twig' with {product:product} %}
+        {% endfor %}
+
+
+        </div>
+    </div>
+{% endblock %}
+
+

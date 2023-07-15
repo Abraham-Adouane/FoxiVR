@@ -1,0 +1,104 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Panier{% endblock %}
+
+{% block body %}
+
+
+{# {{cart.quantity}} #}
+<div class="container">
+
+
+
+
+<div class="card my-3 p-2">
+    <div class="row">
+        <div class="col-md-8">
+            <h4>Mon panier</h4>
+{% if (data is empty) %}
+Votre panier est vide
+{% else %}
+<table class='table'>
+    <thead>
+        <tr>
+            <th>Produit</th>
+            <th>Prix</th>
+            <th>quantité</th>
+            <th>Total</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for element in data %}
+        <tr>
+
+            <td><img width='40px' src="{{asset('uploads/images/products/'~ element.product.image)}}" alt=""> {{element.product.name|slice(0, 10) ~ ' ...'}}</td>
+            <td>{{element.product.price / 100}} &euro;</td>
+            <td><a class="btn btn-dark rounded-0 rounded-start me-2" href="{{path('cart_reduce', { 'id': element.product.id })}}">-</a> {{element.quantity}} <a class="btn btn-dark rounded-0 rounded-end ms-2" href="{{path('cart_add', { 'id': element.product.id })}}">+</a></td>
+            <td>{{element.quantity * element.product.price / 100}} &euro;</td>
+
+            <td><a href="{{path('cart_delete', { 'id': element.product.id })}}"><i class="fa-solid fa-square-xmark text-danger fs-5"></i></a></td>
+
+        </tr>
+        {% else %}
+        <tr>
+            <td colspan="5">Votre panier est vide</td>
+        </tr>
+        {% endfor %}
+
+        </tbody>
+        <tfoot>
+            <td colspan="3">Total</td>
+            <td>{{totalAmount / 100}} &euro;</td>
+            <td></td>
+    
+        </tfoot>
+    </table>
+    {% endif %}
+                    
+<div class='mt-3'>
+        <a class="btn btn-secondary" href="{{path('app_product')}}"><i class="fa-solid fa-turn-down fa-rotate-90"></i>  Retour</a>
+        <a href="{{path('cart_clearCart')}}" class="btn btn-danger">Vider le panier</a>
+</div>
+</div>
+                {% if not data is empty %}
+            <div class="col-md-4">
+                <h5>Recap</h5>
+                <hr>
+                <div class="row">
+                    <div class="col" style="padding-left:0;"> Total
+                    </div>
+                    <div class="col text-right">{{totalAmount / 100}} &euro;
+                    </div>
+                </div>
+                <form>
+                    <label for="delivery-select">Livraison</label>
+
+                    <select name="delivery" id="delivery-select">
+                        <option value="">--Choisissez une livraison--</option>
+                        <option value="7">colissimo - 7€</option>
+                        <option value="15">TNT - 15</option>
+                        <option value="15">Fedex - 15 €</option>
+                        <option value="20">Drone - 20 €</option>
+
+                    </select>
+                    <label for="delivery-select">Code de reduction</label>
+                    <input id="code" placeholder="Votre code de reduction" value=''>
+                </form>
+                <div class="row" style="border-top: 1px solid rgba(0,0,0,.1); padding: 2vh 0;">
+                    <div class="col">
+                        Prix total
+                    </div>
+                    <div class="col text-right">
+                        {{totalAmount / 100}} &euro;
+                    </div>
+                </div>
+                <button class="btn btn-success">
+                    Valider le panier
+                </button>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

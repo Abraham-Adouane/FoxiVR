@@ -1,11 +1,16 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello HomeController!{% endblock %}
+{% block title %}Acceuil - FoxiVR{% endblock %}
 
 {% block body %}
 
+
+<video class='object-fit-cover' autoplay = "autoplay" loop width="100%" height="400px">
+  <source src="{{asset('ressources/videos/istockphoto-1389375951-640_adpp_is.mp4')}}" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
 <div class="container">
- <section class="row">
+ <section class="row py-5">
             <div class="col-12 col-md-6 my-5">
                 <h2>Explorez le monde de la réalité virtuelle</h2>
                 <p>Que vous soyez un joueur passionné, un professionnel à la recherche d'équipements haut de gamme ou
@@ -20,10 +25,10 @@
                     PlayStation VR, Samsung Gear VR et plus encore.</p>
 
             </div>
-            <img class="col-12 col-md-6" src="https://images.pexels.com/photos/4009622/pexels-photo-4009622.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="">
+            <img class="col-12 col-md-6 rounded-5" src="https://images.pexels.com/photos/4009622/pexels-photo-4009622.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="">
 
 
-            <img class="col-12 col-md-6 my-5" src="https://images.unsplash.com/photo-1593508512255-86ab42a8e620?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1178&q=80"
+            <img class="col-12 col-md-6 my-5 rounded-5" src="https://images.unsplash.com/photo-1593508512255-86ab42a8e620?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1178&q=80"
                 alt="">
             <div class="col-12 col-md-6 my-5 py-5">
                 <p>Notre équipe d'experts en VR est là pour vous aider à choisir les produits qui correspondent le mieux
@@ -48,7 +53,7 @@
                     contacter
                     si vous avez des questions ou si vous avez besoin d'aide pour choisir votre équipement VR idéal.</p>
             </div>
-            <img class="col-12 col-md-6" src="https://images.pexels.com/photos/6498272/pexels-photo-6498272.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+            <img class="col-12 col-md-6 rounded-5" src="https://images.pexels.com/photos/6498272/pexels-photo-6498272.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
                 alt="">
         </section>
 </div>
